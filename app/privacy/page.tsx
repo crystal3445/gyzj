@@ -6,15 +6,15 @@ export default function PrivacyPage() {
       <div className="container mx-auto px-4 py-10 md:py-16 max-w-3xl">
         <h1 className="font-serif text-3xl md:text-4xl font-bold mb-6">隐私政策</h1>
         <p className="text-foreground/70 leading-7 mb-6">
-          本页面用于说明我们如何收集、使用和保护您在招商咨询表单中提交的个人信息。
+          本页面用于说明我们如何收集、使用和保护您在合作咨询表单中提交的个人信息。
         </p>
 
         <section className="space-y-4 text-foreground/80 leading-7">
           <p>
-            1. 收集信息：当您提交招商咨询时，我们会收集您填写的姓名、联系电话、拟开店城市、行业信息及相关咨询内容。
+            1. 收集信息：当您提交合作咨询时，我们会收集您填写的姓名、联系电话、拟开店城市、行业信息及相关咨询内容。
           </p>
           <p>
-            2. 使用目的：我们仅将上述信息用于招商咨询沟通、项目评估与回访，不用于与招商无关的用途。
+            2. 使用目的：我们仅将上述信息用于合作咨询沟通、项目评估与回访，不用于与合作无关的用途。
           </p>
           <p>
             3. 信息保护：我们采取合理的管理与技术措施保护您的信息，防止未经授权的访问、泄露或滥用。

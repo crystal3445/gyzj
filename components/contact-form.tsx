@@ -94,14 +94,14 @@ export function ContactForm() {
           }`}
         >
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-            联系招商
+            联系合作
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-4" />
           <p className="text-foreground/70 max-w-2xl mx-auto">
             请直接拨打下方热线联系
           </p>
           <p className="text-foreground/70 max-w-2xl mx-auto mt-2">
-            留下您的联系方式，招商经理将在24小时内与您取得联系
+            留下您的联系方式，合作顾问将在24小时内与您取得联系
           </p>
         </div>
 
@@ -112,7 +112,7 @@ export function ContactForm() {
               isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
           >
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8 h-full">
+            <div className="bg-card border border-border rounded-xl p-6 md:p-8 h-full flex flex-col">
               <h3 className="font-serif text-2xl font-bold text-foreground mb-6">
                 联系方式
               </h3>
@@ -123,7 +123,7 @@ export function ContactForm() {
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-foreground mb-1">加盟热线（微信同号）</h4>
+                    <h4 className="font-medium text-foreground mb-1">合作热线（微信同号）</h4>
                     <p className="text-2xl font-serif font-bold text-primary">
                       187-6818-9822
                     </p>
@@ -155,7 +155,21 @@ export function ContactForm() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-border">
+              <div className="mt-6 rounded-xl border border-border bg-background/40 p-4">
+                <h4 className="font-medium text-foreground mb-3">微信咨询（扫码添加）</h4>
+                <div className="mx-auto w-full max-w-[220px] rounded-lg border border-border bg-card p-2 shadow-sm">
+                  <img
+                    src="/images/wechat-consult-qr.png"
+                    alt="微信咨询二维码"
+                    className="w-full rounded-md object-contain"
+                  />
+                </div>
+                <p className="text-xs text-foreground/60 mt-2">
+                  扫码后可直接添加顾问微信进行一对一咨询。
+                </p>
+              </div>
+
+              <div className="mt-auto pt-6 border-t border-border">
                 <p className="text-foreground/60 text-sm">
                   * 我们承诺对您的信息严格保密
                 </p>
@@ -169,7 +183,7 @@ export function ContactForm() {
               isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
             }`}
           >
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8">
+            <div className="bg-card border border-border rounded-xl p-6 md:p-8 h-full flex flex-col">
               <h3 className="font-serif text-2xl font-bold text-foreground mb-6">
                 填写信息
               </h3>
@@ -204,7 +218,7 @@ export function ContactForm() {
                   ) : null}
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5 flex-1">
                   {errorMessage ? (
                     <div
                       className="rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
@@ -385,7 +399,7 @@ export function ContactForm() {
                       >
                         《隐私政策》
                       </Link>
-                      ，同意提交我的联系方式用于招商咨询沟通。
+                      ，同意提交我的联系方式用于合作咨询沟通。
                     </span>
                   </label>
 

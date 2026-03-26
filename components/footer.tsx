@@ -33,9 +33,9 @@ export function Footer() {
                 { label: "品牌介绍", href: "#brand" },
                 { label: "合作模式", href: "#cooperation" },
                 { label: "整店运营", href: "#output" },
-                { label: "加盟流程", href: "#process" },
+                { label: "合作流程", href: "#process" },
                 { label: "品牌优势", href: "#advantages" },
-                { label: "招商咨询", href: "#contact" },
+                { label: "合作咨询", href: "#contact" },
               ].map((link) => (
                 <a
                   key={link.href}
@@ -53,7 +53,7 @@ export function Footer() {
             <h4 className="font-serif text-lg font-bold text-background mb-4">联系我们</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2">
-                <span className="text-primary whitespace-nowrap">加盟热线：</span>
+                <span className="text-primary whitespace-nowrap">合作热线：</span>
                 <a href="tel:18768189822" className="text-background hover:text-primary transition-colors font-medium">
                   187-6818-9822
                 </a>

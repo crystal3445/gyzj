@@ -81,8 +81,8 @@ export async function POST(req: Request) {
 
     // 标题与正文首行都带上关键词，避免飞书返回 code 19024（Key Words Not Found）
     const title = feishuKeyword
-      ? `${feishuKeyword} 📋 新招商咨询`
-      : "📋 新招商咨询"
+      ? `${feishuKeyword} 📋 新合作咨询`
+      : "📋 新合作咨询"
     // 飞书 post.zh_cn.content 必须是「段落数组」：每一行是一个内层数组，元素为富文本片段
     // 扁平的 [{tag,text},...] 会报 19002 unknown content value
     const postContent = fields.map(([label, value], i) => {

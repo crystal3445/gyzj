@@ -21,7 +21,7 @@ const cooperationModes: CooperationMode[] = [
     price: "8900元",
     description: "适合已有门店老板嫁接，轻资产快速上手",
     features: [
-      "门店净利润100%归加盟商",
+      "门店净利润100%归合作方",
       "适合已有门店老板嫁接",
       "大品牌供给流量",
       "全程运营指导",
@@ -35,7 +35,7 @@ const cooperationModes: CooperationMode[] = [
     price: "44,900元",
     description: "120㎡标准店，2张床，员工2人，含14万+零售价产品礼包",
     features: [
-      "门店净利润100%归加盟商",
+      "门店净利润100%归合作方",
       "价值14万+产品礼包",
       "最美灸师培训",
       "1公里区域保护",

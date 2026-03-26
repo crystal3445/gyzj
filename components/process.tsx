@@ -18,22 +18,22 @@ const steps = [
   {
     icon: MessageCircle,
     title: "咨询",
-    description: "咨询各区域招商代理人员",
+    description: "咨询各区域合作顾问",
   },
   {
     icon: MapPin,
     title: "店面选址",
-    description: "在招商代理人员协助下自行选址",
+    description: "在合作顾问协助下自行选址",
   },
   {
     icon: UserCheck,
-    title: "加盟商考察",
+    title: "合作方考察",
     description: "到公司或所在地门店考察",
   },
   {
     icon: FileSignature,
     title: "评估通过",
-    description: "签订特许合同，缴纳加盟费用",
+    description: "签订合作合同，完成相关费用缴纳",
   },
   {
     icon: Palette,
@@ -75,7 +75,7 @@ export function Process() {
           }`}
         >
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-            加盟流程
+            合作流程
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-4" />
           <p className="text-foreground/70 max-w-2xl mx-auto">

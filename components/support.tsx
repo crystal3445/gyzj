@@ -33,12 +33,12 @@ const supports = [
   {
     icon: Shield,
     title: "区域保护支持",
-    description: "公司对加盟商门店实行1公里区域保护，由外联部严格监督市场规范",
+    description: "公司对合作门店实行1公里区域保护，由外联部严格监督市场规范",
   },
   {
     icon: Megaphone,
     title: "营销活动支持",
-    description: "为加盟商提供多频次多样化的营销活动方案，促进加盟门店业绩提升",
+    description: "为合作门店提供多频次多样化的营销活动方案，促进门店业绩提升",
   },
   {
     icon: Users,
@@ -91,7 +91,7 @@ export function Support() {
           }`}
         >
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-            加盟支持
+            合作支持
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-4" />
           <p className="text-foreground/70 max-w-2xl mx-auto">
@@ -128,7 +128,7 @@ export function Support() {
           style={{ transitionDelay: "600ms" }}
         >
           <h3 className="font-serif text-2xl font-bold text-foreground text-center mb-8">
-            加盟条件
+            合作条件
           </h3>
           <div className="bg-card border border-border rounded-xl p-6 md:p-8">
             <ul className="space-y-4">
