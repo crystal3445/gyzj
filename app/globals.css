@@ -92,3 +92,44 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Markdown 文章正文（资讯详情页） */
+.md-prose {
+  @apply text-foreground/90 leading-relaxed text-base;
+}
+.md-prose h1 {
+  @apply font-serif text-2xl font-bold mt-10 mb-4 text-foreground;
+}
+.md-prose h2 {
+  @apply font-serif text-xl font-semibold mt-8 mb-3 text-foreground;
+}
+.md-prose h3 {
+  @apply font-serif text-lg font-semibold mt-6 mb-2 text-foreground;
+}
+.md-prose p {
+  @apply mb-4;
+}
+.md-prose ul {
+  @apply list-disc pl-6 mb-4 space-y-1;
+}
+.md-prose ol {
+  @apply list-decimal pl-6 mb-4 space-y-1;
+}
+.md-prose a {
+  @apply text-primary underline underline-offset-2 hover:text-primary/80;
+}
+.md-prose strong {
+  @apply font-semibold text-foreground;
+}
+.md-prose hr {
+  @apply my-8 border-border;
+}
+.md-prose code {
+  @apply rounded bg-muted px-1.5 py-0.5 text-sm;
+}
+.md-prose pre {
+  @apply overflow-x-auto rounded-lg border border-border bg-card p-4 my-4 text-sm;
+}
+.md-prose blockquote {
+  @apply border-l-4 border-primary/40 pl-4 italic text-foreground/80 my-4;
+}

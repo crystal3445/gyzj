@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -11,10 +13,15 @@ const navItems = [
   { label: "合作模式", href: "#cooperation" },
   { label: "合作流程", href: "#process" },
   { label: "合作支持", href: "#support" },
+  { label: "资讯", href: "/news" },
   { label: "合作咨询", href: "#contact" },
 ]
 
+const navLinkClass =
+  "text-foreground/80 hover:text-primary transition-colors text-sm font-medium"
+
 export function Header() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -34,6 +41,46 @@ export function Header() {
     }
   }
 
+  function NavItem({
+    item,
+    mobile = false,
+  }: {
+    item: (typeof navItems)[number]
+    mobile?: boolean
+  }) {
+    const className = mobile
+      ? "w-full text-left px-4 py-3 text-foreground/80 hover:text-primary hover:bg-background transition-colors"
+      : navLinkClass
+
+    if (item.href.startsWith("/")) {
+      return (
+        <Link href={item.href} className={className} onClick={() => setIsOpen(false)}>
+          {item.label}
+        </Link>
+      )
+    }
+    if (pathname === "/") {
+      return (
+        <button
+          type="button"
+          onClick={() => scrollToSection(item.href)}
+          className={className}
+        >
+          {item.label}
+        </button>
+      )
+    }
+    return (
+      <Link
+        href={"/" + item.href}
+        className={className}
+        onClick={() => setIsOpen(false)}
+      >
+        {item.label}
+      </Link>
+    )
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -43,25 +90,19 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <img 
-              src="/images/logo.jpg" 
-              alt="国医仲景" 
+          <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+            <img
+              src="/images/logo.jpg"
+              alt="国医仲景"
               className="w-12 h-12 object-contain"
             />
             <span className="font-serif text-xl font-bold text-foreground">国医仲景</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium"
-              >
-                {item.label}
-              </button>
+              <NavItem key={item.label + item.href} item={item} />
             ))}
             <Button
               onClick={() => scrollToSection("#contact")}
@@ -86,13 +127,7 @@ export function Header() {
           <div className="md:hidden bg-card border-t border-border animate-in slide-in-from-top-2">
             <nav className="flex flex-col py-4">
               {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-3 text-foreground/80 hover:text-primary hover:bg-background transition-colors text-left"
-                >
-                  {item.label}
-                </button>
+                <NavItem key={item.label + item.href} item={item} mobile />
               ))}
               <div className="px-4 pt-2">
                 <Button

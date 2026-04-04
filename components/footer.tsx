@@ -1,8 +1,16 @@
 "use client"
 
+import { usePathname } from "next/navigation"
 import { OfficialAccountLink } from "@/components/official-account-link"
 
 export function Footer() {
+  const pathname = usePathname()
+  const resolveHref = (href: string) => {
+    if (href.startsWith("/")) return href
+    if (pathname === "/") return href
+    return "/" + href
+  }
+
   return (
     <footer className="bg-foreground py-12">
       <div className="container mx-auto px-4">
@@ -35,11 +43,12 @@ export function Footer() {
                 { label: "整店运营", href: "#output" },
                 { label: "合作流程", href: "#process" },
                 { label: "品牌优势", href: "#advantages" },
+                { label: "资讯动态", href: "/news" },
                 { label: "合作咨询", href: "#contact" },
               ].map((link) => (
                 <a
-                  key={link.href}
-                  href={link.href}
+                  key={link.label + link.href}
+                  href={resolveHref(link.href)}
                   className="text-background/60 hover:text-primary transition-colors text-sm py-1"
                 >
                   {link.label}
