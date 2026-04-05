@@ -49,8 +49,13 @@ function resolveSanityBody(doc: {
 }): PostBodyContent {
   const raw = doc.content
   if (Array.isArray(raw) && raw.length > 0) {
-    const first = raw[0] as { _type?: string }
-    if (first._type === "block") {
+    const first = raw[0]
+    if (
+      first &&
+      typeof first === "object" &&
+      "_type" in first &&
+      typeof (first as { _type: unknown })._type === "string"
+    ) {
       return { kind: "portable", blocks: raw as PortableTextBlock[] }
     }
   }

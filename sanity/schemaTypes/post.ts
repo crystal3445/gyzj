@@ -36,7 +36,7 @@ export default defineType({
       title: "正文",
       type: "blockContent",
       description:
-        "在电脑浏览器中打开文章后全选复制，在此粘贴：一般会保留分段。不要用微信里长按复制整篇（容易变成一整段）。",
+        "可插入文字与图片：在正文中点 + 选「图片」上传；在电脑浏览器打开原文后复制粘贴可保留分段。",
     }),
     defineField({
       name: "body",

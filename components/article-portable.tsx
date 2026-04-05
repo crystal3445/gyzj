@@ -1,5 +1,6 @@
 import type { PortableTextBlock } from "@portabletext/types"
 import { PortableText, type PortableTextComponents } from "@portabletext/react"
+import { urlForImage } from "@/lib/sanity/image"
 
 type Props = {
   blocks: PortableTextBlock[]
@@ -29,6 +30,33 @@ const components: PortableTextComponents = {
         <a href={href} rel="noopener noreferrer" target="_blank">
           {children}
         </a>
+      )
+    },
+  },
+  types: {
+    image: ({ value }) => {
+      const url = urlForImage(value)
+      if (!url) return null
+      const alt =
+        typeof value?.alt === "string" && value.alt.length > 0 ? value.alt : ""
+      const caption =
+        typeof value?.caption === "string" && value.caption.length > 0
+          ? value.caption
+          : null
+      return (
+        <figure className="my-6">
+          <img
+            src={url}
+            alt={alt}
+            className="w-full max-w-full h-auto rounded-md border border-border/60"
+            loading="lazy"
+          />
+          {caption ? (
+            <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+              {caption}
+            </figcaption>
+          ) : null}
+        </figure>
       )
     },
   },
