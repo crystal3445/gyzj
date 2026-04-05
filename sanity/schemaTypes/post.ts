@@ -36,7 +36,7 @@ export default defineType({
       title: "正文",
       type: "blockContent",
       description:
-        "文字和图片都在「正文」里：先写一段 → 光标放在段尾按回车 → 点 + 选「图片」→ 再写下一段。左侧可拖动每条块调整顺序。没有单独的附件区。",
+        "图文同一篇里，可拖动排序。粘贴图片：先鼠标点进某段文字里让光标闪烁，再 Ctrl+V；若跑到文末，拖到目标位置即可。或从电脑文件夹把图片文件拖进两段字之间。点工具栏 Image 上传也可。",
     }),
     defineField({
       name: "body",
