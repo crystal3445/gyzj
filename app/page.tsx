@@ -1,6 +1,7 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { BrandIntro } from "@/components/brand-intro"
+import { HomeNews } from "@/components/home-news"
 import { StoreOutput } from "@/components/store-output"
 import { Advantages } from "@/components/advantages"
 import { Cooperation } from "@/components/cooperation"
@@ -10,13 +11,21 @@ import { Stats } from "@/components/stats"
 import { ContactForm } from "@/components/contact-form"
 import { Footer } from "@/components/footer"
 import { FloatingCTA } from "@/components/floating-cta"
+import { getAllPosts } from "@/lib/posts"
 
-export default function Home() {
+/** 与资讯页一致，新文章约 60 秒内出现在首页 */
+export const revalidate = 60
+
+export default async function Home() {
+  const allPosts = await getAllPosts()
+  const homeNews = allPosts.slice(0, 3)
+
   return (
     <main className="min-h-screen">
       <Header />
       <Hero />
       <BrandIntro />
+      <HomeNews posts={homeNews} />
       <StoreOutput />
       <Advantages />
       <Cooperation />
