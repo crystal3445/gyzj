@@ -48,10 +48,11 @@ export default defineType({
     }),
     defineField({
       name: "published",
-      title: "已发布",
+      title: "在官网展示",
       type: "boolean",
       initialValue: true,
-      description: "关闭后网站前台不显示",
+      description:
+        "打开：资讯列表和详情里能看到。关闭：仅后台有，官网上不显示。与右上角 Publish 不同，那是把稿子提交到云端。",
     }),
   ],
   preview: {

@@ -19,8 +19,9 @@ export type PostListItem = {
   frontmatter: PostFrontmatter
 }
 
+/** 官网展示：默认展示；仅当「已发布」明确为 false 时隐藏（与 Sanity 右上角 Publish 无关，避免双重发布困惑） */
 const postsIndexQuery = groq`
-  *[_type == "post" && published == true && defined(slug.current)] | order(publishedAt desc) {
+  *[_type == "post" && defined(slug.current) && (published != false)] | order(publishedAt desc) {
     "slug": slug.current,
     title,
     "date": publishedAt,
@@ -29,7 +30,7 @@ const postsIndexQuery = groq`
 `
 
 const postBySlugQuery = groq`
-  *[_type == "post" && slug.current == $slug && published == true][0]{
+  *[_type == "post" && slug.current == $slug && (published != false)][0]{
     title,
     publishedAt,
     excerpt,
