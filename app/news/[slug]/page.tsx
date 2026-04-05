@@ -5,6 +5,7 @@ import { format } from "date-fns"
 import { zhCN } from "date-fns/locale"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts"
 import { ArticleMarkdown } from "@/components/article-markdown"
+import { ArticlePortable } from "@/components/article-portable"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
@@ -62,7 +63,11 @@ export default async function NewsPostPage({ params }: Props) {
             </p>
           ) : null}
         </header>
-        <ArticleMarkdown content={post.content} />
+        {post.bodyContent.kind === "portable" ? (
+          <ArticlePortable blocks={post.bodyContent.blocks} />
+        ) : (
+          <ArticleMarkdown content={post.bodyContent.markdown} />
+        )}
       </article>
       <Footer />
     </main>

@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
+import type { PortableTextBlock } from "@portabletext/types"
 import { groq } from "next-sanity"
 import { getSanityClient, isSanityEnabled } from "@/lib/sanity/client"
 
@@ -32,10 +33,29 @@ const postBySlugQuery = groq`
     title,
     publishedAt,
     excerpt,
+    content,
     body,
     "slug": slug.current
   }
 `
+
+export type PostBodyContent =
+  | { kind: "markdown"; markdown: string }
+  | { kind: "portable"; blocks: PortableTextBlock[] }
+
+function resolveSanityBody(doc: {
+  content?: unknown
+  body?: string | null
+}): PostBodyContent {
+  const raw = doc.content
+  if (Array.isArray(raw) && raw.length > 0) {
+    const first = raw[0] as { _type?: string }
+    if (first._type === "block") {
+      return { kind: "portable", blocks: raw as PortableTextBlock[] }
+    }
+  }
+  return { kind: "markdown", markdown: doc.body ?? "" }
+}
 
 function getPostSlugsLocal(): string[] {
   if (!fs.existsSync(postsDirectory)) return []
@@ -127,12 +147,10 @@ export async function getAllPostSlugs(): Promise<string[]> {
   return posts.map((p) => p.slug)
 }
 
-export async function getPostBySlug(
-  slug: string
-): Promise<{
+export async function getPostBySlug(slug: string): Promise<{
   slug: string
   frontmatter: PostFrontmatter
-  content: string
+  bodyContent: PostBodyContent
 } | null> {
   if (isSanityEnabled()) {
     const client = getSanityClient()
@@ -142,6 +160,7 @@ export async function getPostBySlug(
           title: string
           publishedAt: string
           excerpt?: string | null
+          content?: unknown
           body?: string | null
           slug: string
         } | null>(postBySlugQuery, { slug })
@@ -153,7 +172,7 @@ export async function getPostBySlug(
               date: toIsoDate(doc.publishedAt),
               description: doc.excerpt ?? undefined,
             },
-            content: doc.body ?? "",
+            bodyContent: resolveSanityBody(doc),
           }
         }
       } catch (e) {
@@ -163,5 +182,9 @@ export async function getPostBySlug(
   }
   const local = getPostBySlugLocal(slug)
   if (!local || local.frontmatter.draft) return null
-  return local
+  return {
+    slug: local.slug,
+    frontmatter: local.frontmatter,
+    bodyContent: { kind: "markdown", markdown: local.content },
+  }
 }

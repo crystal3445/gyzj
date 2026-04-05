@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "studio:register": "sanity deploy --external --url https://gyzjhcxa.com/studio -y"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
+    "@portabletext/react": "^6.0.3",
+    "@portabletext/types": "^4.0.2",
     "@radix-ui/react-accordion": "1.2.12",
     "@radix-ui/react-alert-dialog": "1.1.15",
     "@radix-ui/react-aspect-ratio": "1.1.8",

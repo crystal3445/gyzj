@@ -32,11 +32,19 @@ export default defineType({
       rows: 3,
     }),
     defineField({
+      name: "content",
+      title: "正文",
+      type: "blockContent",
+      description:
+        "在电脑浏览器中打开文章后全选复制，在此粘贴：一般会保留分段。不要用微信里长按复制整篇（容易变成一整段）。",
+    }),
+    defineField({
       name: "body",
-      title: "正文（Markdown）",
+      title: "正文（旧版 Markdown，仅历史数据）",
       type: "text",
-      rows: 28,
-      description: "支持 Markdown：标题、列表、加粗、链接等",
+      rows: 12,
+      hidden: ({ document }) => !document?.body,
+      description: "早期用 Markdown 保存的文章。新文章请只编辑上方「正文」。",
     }),
     defineField({
       name: "published",
