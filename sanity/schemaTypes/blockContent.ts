@@ -4,6 +4,9 @@ export default defineType({
   name: "blockContent",
   title: "正文内容",
   type: "array",
+  options: {
+    layout: "list",
+  },
   of: [
     defineArrayMember({
       type: "block",
@@ -56,6 +59,19 @@ export default defineType({
           description: "显示在图片下方的小字说明",
         }),
       ],
+      preview: {
+        select: {
+          caption: "caption",
+          media: "asset",
+        },
+        prepare({ caption, media }) {
+          return {
+            title: caption || "图片",
+            subtitle: "插在正文里（可拖动调整位置）",
+            media,
+          }
+        },
+      },
     }),
   ],
 })

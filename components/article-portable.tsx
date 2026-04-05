@@ -1,9 +1,10 @@
-import type { PortableTextBlock } from "@portabletext/types"
+import type { ArbitraryTypedObject } from "@portabletext/types"
 import { PortableText, type PortableTextComponents } from "@portabletext/react"
 import { urlForImage } from "@/lib/sanity/image"
 
 type Props = {
-  blocks: PortableTextBlock[]
+  /** 正文块（段落 + 图片等），顺序即阅读顺序 */
+  blocks: ArbitraryTypedObject[]
 }
 
 const components: PortableTextComponents = {

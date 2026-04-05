@@ -36,7 +36,7 @@ export default defineType({
       title: "正文",
       type: "blockContent",
       description:
-        "可插入文字与图片：在正文中点 + 选「图片」上传；在电脑浏览器打开原文后复制粘贴可保留分段。",
+        "文字和图片都在「正文」里：先写一段 → 光标放在段尾按回车 → 点 + 选「图片」→ 再写下一段。左侧可拖动每条块调整顺序。没有单独的附件区。",
     }),
     defineField({
       name: "body",

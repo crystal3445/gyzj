@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
-import type { PortableTextBlock } from "@portabletext/types"
+import type { ArbitraryTypedObject } from "@portabletext/types"
 import { groq } from "next-sanity"
 import { getSanityClient, isSanityEnabled } from "@/lib/sanity/client"
 
@@ -41,7 +41,7 @@ const postBySlugQuery = groq`
 
 export type PostBodyContent =
   | { kind: "markdown"; markdown: string }
-  | { kind: "portable"; blocks: PortableTextBlock[] }
+  | { kind: "portable"; blocks: ArbitraryTypedObject[] }
 
 function resolveSanityBody(doc: {
   content?: unknown
@@ -56,7 +56,7 @@ function resolveSanityBody(doc: {
       "_type" in first &&
       typeof (first as { _type: unknown })._type === "string"
     ) {
-      return { kind: "portable", blocks: raw as PortableTextBlock[] }
+      return { kind: "portable", blocks: raw as ArbitraryTypedObject[] }
     }
   }
   return { kind: "markdown", markdown: doc.body ?? "" }
