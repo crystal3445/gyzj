@@ -77,6 +77,24 @@ export function Footer() {
 
         {/* Divider */}
         <div className="border-t border-background/10 pt-8">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-background/55 mb-6">
+            <a
+              href="https://beian.miit.gov.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              浙ICP备2026020146号-1
+            </a>
+            <a
+              href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33011002019272"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              浙公网安备33011002019272号
+            </a>
+          </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-background/40 text-sm text-center md:text-left">
               © 2025 国医仲景. All rights reserved. 河南国医华草健康产业集团有限公司
