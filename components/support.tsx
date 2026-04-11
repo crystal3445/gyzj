@@ -128,7 +128,7 @@ export function Support() {
           style={{ transitionDelay: "600ms" }}
         >
           <h3 className="font-serif text-2xl font-bold text-foreground text-center mb-8">
-            合作条件
+            加盟条件
           </h3>
           <div className="bg-card border border-border rounded-xl p-6 md:p-8">
             <ul className="space-y-4">

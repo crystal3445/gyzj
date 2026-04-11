@@ -75,7 +75,7 @@ export function Hero() {
           size="lg"
           className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-10 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
         >
-          合作咨询
+          加盟咨询
         </Button>
 
         {/* Scroll indicator */}

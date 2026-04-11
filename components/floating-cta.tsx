@@ -32,7 +32,7 @@ export function FloatingCTA() {
         size="lg"
         className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl rounded-full px-6 py-6"
       >
-        <span className="font-medium">立即合作</span>
+        <span className="font-medium">立即咨询</span>
       </Button>
     </div>
   )

@@ -94,7 +94,7 @@ export function ContactForm() {
           }`}
         >
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-            联系合作
+            加盟咨询
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-4" />
           <p className="text-foreground/70 max-w-2xl mx-auto">
@@ -123,7 +123,7 @@ export function ContactForm() {
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-foreground mb-1">合作热线（微信同号）</h4>
+                    <h4 className="font-medium text-foreground mb-1">加盟热线（微信同号）</h4>
                     <p className="text-2xl font-serif font-bold text-primary">
                       187-6818-9822
                     </p>
@@ -399,7 +399,7 @@ export function ContactForm() {
                       >
                         《隐私政策》
                       </Link>
-                      ，同意提交我的联系方式用于合作咨询沟通。
+                      ，同意提交我的联系方式用于加盟咨询沟通。
                     </span>
                   </label>
 

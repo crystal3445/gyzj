@@ -21,7 +21,7 @@ const cooperationModes: CooperationMode[] = [
     price: "8900元",
     description: "适合已有门店老板嫁接，轻资产快速上手",
     features: [
-      "门店净利润100%归合作方",
+      "门店净利润100%归加盟商",
       "适合已有门店老板嫁接",
       "大品牌供给流量",
       "全程运营指导",
@@ -35,7 +35,7 @@ const cooperationModes: CooperationMode[] = [
     price: "44,900元",
     description: "120㎡标准店，2张床，员工2人，含14万+零售价产品礼包",
     features: [
-      "门店净利润100%归合作方",
+      "门店净利润100%归加盟商",
       "价值14万+产品礼包",
       "最美灸师培训",
       "1公里区域保护",
@@ -77,11 +77,11 @@ export function Cooperation() {
           }`}
         >
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-            合作模式
+            加盟模式
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-4" />
           <p className="text-foreground/70 max-w-2xl mx-auto">
-            多层级合作体系，满足不同投资需求
+            多层级加盟体系，满足不同投资需求
           </p>
         </div>
 

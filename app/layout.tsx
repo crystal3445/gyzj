@@ -8,11 +8,11 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "国医仲景 | 健康体验中心整店输出 - 合作咨询",
+  title: "国医仲景加盟 | 健康体验中心整店输出 - 官方加盟咨询",
   description:
-    "国医华草健康集团旗下品牌，四代传承中医智慧，健康体验中心整店输出，诚邀全国合作伙伴合作。",
+    "国医仲景加盟：国医华草健康集团旗下品牌，四代传承中医智慧，健康体验中心整店输出，面向全国招募加盟商，艾灸养生门店加盟与运营支持。",
   keywords:
-    "国医仲景, 中医养生, 健康体验中心, 艾灸, 合作咨询, 整店输出",
+    "国医仲景加盟, 国医仲景, 艾灸加盟, 健康体验中心加盟, 中医养生加盟, 整店输出, 加盟咨询",
 }
 
 export default function RootLayout({

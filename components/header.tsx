@@ -10,11 +10,11 @@ const navItems = [
   { label: "品牌溯源", href: "#brand" },
   { label: "整店运营", href: "#output" },
   { label: "品牌优势", href: "#advantages" },
-  { label: "合作模式", href: "#cooperation" },
-  { label: "合作流程", href: "#process" },
+  { label: "加盟模式", href: "#cooperation" },
+  { label: "加盟流程", href: "#process" },
   { label: "合作支持", href: "#support" },
   { label: "资讯", href: "/news" },
-  { label: "合作咨询", href: "#contact" },
+  { label: "加盟咨询", href: "#contact" },
 ]
 
 const navLinkClass =
@@ -108,7 +108,7 @@ export function Header() {
               onClick={() => scrollToSection("#contact")}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
-              合作咨询
+              加盟咨询
             </Button>
           </nav>
 
@@ -134,7 +134,7 @@ export function Header() {
                   onClick={() => scrollToSection("#contact")}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
-                  合作咨询
+                  加盟咨询
                 </Button>
               </div>
             </nav>
