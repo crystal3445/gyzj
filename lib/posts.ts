@@ -12,6 +12,8 @@ export type PostFrontmatter = {
   date: string
   description?: string
   draft?: boolean
+  /** 首页资讯区置顶（Sanity 或本地 Markdown frontmatter） */
+  pinned?: boolean
 }
 
 export type PostListItem = {
@@ -19,13 +21,17 @@ export type PostListItem = {
   frontmatter: PostFrontmatter
 }
 
+/** 首页「最新资讯」区块展示篇数 */
+export const HOME_NEWS_LIMIT = 9
+
 /** 官网展示：默认展示；仅当「已发布」明确为 false 时隐藏（与 Sanity 右上角 Publish 无关，避免双重发布困惑） */
 const postsIndexQuery = groq`
-  *[_type == "post" && defined(slug.current) && (published != false)] | order(publishedAt desc) {
+  *[_type == "post" && defined(slug.current) && (published != false)] | order(coalesce(pinned, false) desc, publishedAt desc) {
     "slug": slug.current,
     title,
     "date": publishedAt,
-    "description": excerpt
+    "description": excerpt,
+    pinned
   }
 `
 
@@ -87,12 +93,31 @@ function getPostBySlugLocal(slug: string): {
   }
 }
 
+function sortPostsForDisplay(posts: PostListItem[]): PostListItem[] {
+  return [...posts].sort((a, b) => {
+    const ap = a.frontmatter.pinned ? 1 : 0
+    const bp = b.frontmatter.pinned ? 1 : 0
+    if (bp !== ap) return bp - ap
+    return (
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime()
+    )
+  })
+}
+
 function getAllPostsLocal(): PostListItem[] {
-  return getPostSlugsLocal()
+  const list = getPostSlugsLocal()
     .map((slug) => getPostBySlugLocal(slug))
     .filter((p): p is NonNullable<typeof p> => p !== null)
     .filter((p) => !p.frontmatter.draft)
-    .map(({ slug, frontmatter }) => ({ slug, frontmatter }))
+    .map(({ slug, frontmatter }) => ({
+      slug,
+      frontmatter: {
+        ...frontmatter,
+        pinned: frontmatter.pinned === true,
+      },
+    }))
+  return sortPostsForDisplay(list)
 }
 
 function toIsoDate(value: unknown): string {
@@ -111,6 +136,7 @@ async function getAllPostsSanity(): Promise<PostListItem[]> {
         title: string
         date: string
         description?: string | null
+        pinned?: boolean | null
       }[]
     >(postsIndexQuery)
     return rows.map((row) => ({
@@ -119,6 +145,7 @@ async function getAllPostsSanity(): Promise<PostListItem[]> {
         title: row.title,
         date: toIsoDate(row.date),
         description: row.description ?? undefined,
+        pinned: row.pinned === true,
       },
     }))
   } catch (e) {
@@ -134,11 +161,7 @@ function mergeBySlug(
   const map = new Map<string, PostListItem>()
   for (const p of localPosts) map.set(p.slug, p)
   for (const p of sanityPosts) map.set(p.slug, p)
-  return Array.from(map.values()).sort(
-    (a, b) =>
-      new Date(b.frontmatter.date).getTime() -
-      new Date(a.frontmatter.date).getTime()
-  )
+  return sortPostsForDisplay(Array.from(map.values()))
 }
 
 export async function getAllPosts(): Promise<PostListItem[]> {

@@ -31,21 +31,28 @@ export function HomeNews({ posts }: Props) {
           </Link>
         </div>
 
-        <ul className="grid md:grid-cols-3 gap-5">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {posts.map(({ slug, frontmatter }) => (
             <li key={slug}>
               <Link
                 href={`/news/${slug}`}
-                className="block h-full border border-border rounded-xl p-5 bg-card hover:border-primary/45 hover:shadow-sm transition-all group"
+                className="relative block h-full border border-border rounded-xl p-5 bg-card hover:border-primary/45 hover:shadow-sm transition-all group"
               >
-                <time
-                  dateTime={frontmatter.date}
-                  className="text-xs text-muted-foreground"
-                >
-                  {format(new Date(frontmatter.date), "yyyy年M月d日", {
-                    locale: zhCN,
-                  })}
-                </time>
+                <div className="flex items-start justify-between gap-2">
+                  <time
+                    dateTime={frontmatter.date}
+                    className="text-xs text-muted-foreground"
+                  >
+                    {format(new Date(frontmatter.date), "yyyy年M月d日", {
+                      locale: zhCN,
+                    })}
+                  </time>
+                  {frontmatter.pinned ? (
+                    <span className="shrink-0 text-[11px] font-medium text-primary bg-primary/12 px-2 py-0.5 rounded-md">
+                      置顶
+                    </span>
+                  ) : null}
+                </div>
                 <h3 className="font-serif text-lg font-semibold text-foreground mt-2 line-clamp-2 group-hover:text-primary transition-colors">
                   {frontmatter.title}
                 </h3>

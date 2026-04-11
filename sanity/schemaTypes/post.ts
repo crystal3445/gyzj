@@ -54,13 +54,26 @@ export default defineType({
       description:
         "打开：资讯列表和详情里能看到。关闭：仅后台有，官网上不显示。与右上角 Publish 不同，那是把稿子提交到云端。",
     }),
+    defineField({
+      name: "pinned",
+      title: "首页置顶",
+      type: "boolean",
+      initialValue: false,
+      description:
+        "开启后，该文在首页「最新资讯」区块排在最前（多篇文章置顶时，仍按发布时间从新到旧排列）。",
+    }),
   ],
   preview: {
-    select: { title: "title", date: "publishedAt" },
-    prepare({ title, date }) {
+    select: { title: "title", date: "publishedAt", pinned: "pinned" },
+    prepare({ title, date, pinned }) {
       return {
         title: title ?? "未命名",
-        subtitle: date ? new Date(date).toLocaleString("zh-CN") : "",
+        subtitle: [
+          date ? new Date(date).toLocaleString("zh-CN") : "",
+          pinned ? "📌 置顶" : "",
+        ]
+          .filter(Boolean)
+          .join(" · "),
       }
     },
   },

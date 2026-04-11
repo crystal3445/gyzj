@@ -34,14 +34,21 @@ export default async function NewsIndexPage() {
                 className="border border-border rounded-lg p-5 bg-card hover:border-primary/40 transition-colors"
               >
                 <Link href={`/news/${slug}`} className="block group">
-                  <time
-                    dateTime={frontmatter.date}
-                    className="text-xs text-muted-foreground"
-                  >
-                    {format(new Date(frontmatter.date), "yyyy年M月d日", {
-                      locale: zhCN,
-                    })}
-                  </time>
+                  <div className="flex items-start justify-between gap-2">
+                    <time
+                      dateTime={frontmatter.date}
+                      className="text-xs text-muted-foreground"
+                    >
+                      {format(new Date(frontmatter.date), "yyyy年M月d日", {
+                        locale: zhCN,
+                      })}
+                    </time>
+                    {frontmatter.pinned ? (
+                      <span className="shrink-0 text-[11px] font-medium text-primary bg-primary/12 px-2 py-0.5 rounded-md">
+                        置顶
+                      </span>
+                    ) : null}
+                  </div>
                   <h2 className="font-serif text-xl font-semibold text-foreground mt-1 group-hover:text-primary transition-colors">
                     {frontmatter.title}
                   </h2>
