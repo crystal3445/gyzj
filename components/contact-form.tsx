@@ -164,7 +164,7 @@ export function ContactForm() {
                 <div className="flex justify-center px-2">
                   {/* 使用纯白底 PNG，contain 铺满可用宽度并保持比例 */}
                   <img
-                    src="/images/wechat-consult-qr.png"
+                    src="/images/wechat-contact-qr.png"
                     alt="微信咨询二维码"
                     width={560}
                     height={560}
