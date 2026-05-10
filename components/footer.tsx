@@ -12,12 +12,12 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-foreground py-12">
+    <footer className="bg-foreground py-7 md:py-8">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-6 mb-5">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-3">
               <img 
                 src="/images/logo.jpg" 
                 alt="国医仲景" 
@@ -25,7 +25,7 @@ export function Footer() {
               />
               <span className="font-serif text-xl font-bold text-background">国医仲景</span>
             </div>
-            <p className="text-background/60 text-sm leading-relaxed mb-4">
+            <p className="text-background/60 text-sm leading-relaxed mb-3">
               河南国医华草健康产业集团有限公司，非遗艾绒，始于1905，四代传承中医智慧，致力于打造艾灸行业知名国民品牌。
             </p>
             <p className="text-background/60 text-sm">
@@ -35,7 +35,7 @@ export function Footer() {
 
           {/* Quick Links - 2 columns grid */}
           <div>
-            <h4 className="font-serif text-lg font-bold text-background mb-4">快速导航</h4>
+            <h4 className="font-serif text-lg font-bold text-background mb-3">快速导航</h4>
             <div className="grid grid-cols-2 gap-x-8 gap-y-2">
               {[
                 { label: "品牌介绍", href: "#brand" },
@@ -59,8 +59,8 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif text-lg font-bold text-background mb-4">联系我们</h4>
-            <div className="space-y-3 text-sm">
+            <h4 className="font-serif text-lg font-bold text-background mb-3">联系我们</h4>
+            <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <span className="text-primary whitespace-nowrap">加盟热线：</span>
                 <a href="tel:18768189822" className="text-background hover:text-primary transition-colors font-medium">
@@ -76,8 +76,8 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-background/10 pt-8">
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-background/55 mb-6">
+        <div className="border-t border-background/10 pt-5">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-background/55 mb-3">
             <a
               href="https://beian.miit.gov.cn/"
               target="_blank"
@@ -95,7 +95,7 @@ export function Footer() {
               浙公网安备33011002019272号
             </a>
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-2 md:gap-3">
             <p className="text-background/40 text-sm text-center md:text-left">
               © 2025 国医仲景. All rights reserved. 河南国医华草健康产业集团有限公司
             </p>

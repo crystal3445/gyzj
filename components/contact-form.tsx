@@ -157,11 +157,12 @@ export function ContactForm() {
 
               <div className="mt-6 rounded-xl border border-border bg-background/40 p-4">
                 <h4 className="font-medium text-foreground mb-3">微信咨询（扫码添加）</h4>
+                {/* 扫码图常为微信整张截图（含昵称与底部灰字），用 clip-path 仅保留中间码区；换「纯二维码」PNG 可去掉 clip-path */}
                 <div className="mx-auto w-full max-w-[220px] rounded-lg border border-border bg-card p-2 shadow-sm">
                   <img
                     src="/images/wechat-consult-qr.png"
                     alt="微信咨询二维码"
-                    className="w-full rounded-md object-contain"
+                    className="w-full rounded-md object-contain [clip-path:inset(22%_0_20%_0)]"
                   />
                 </div>
                 <p className="text-xs text-foreground/60 mt-2">
