@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 const navItems = [
   { label: "品牌溯源", href: "#brand" },
   { label: "整店运营", href: "#output" },
+  { label: "企业视频", href: "#company-videos" },
   { label: "品牌优势", href: "#advantages" },
   { label: "加盟模式", href: "#cooperation" },
   { label: "加盟流程", href: "#process" },
