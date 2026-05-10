@@ -156,16 +156,20 @@ export function ContactForm() {
               </div>
 
               <div className="mt-6 rounded-xl border border-border bg-background/40 p-4">
-                <h4 className="font-medium text-foreground mb-3">微信咨询（扫码添加）</h4>
-                {/* 扫码图常为微信整张截图（含昵称与底部灰字），用 clip-path 仅保留中间码区；换「纯二维码」PNG 可去掉 clip-path */}
-                <div className="mx-auto w-full max-w-[220px] rounded-lg border border-border bg-card p-2 shadow-sm">
-                  <img
-                    src="/images/wechat-consult-qr.png"
-                    alt="微信咨询二维码"
-                    className="w-full rounded-md object-contain [clip-path:inset(22%_0_20%_0)]"
-                  />
+                <h4 className="font-medium text-foreground mb-4">微信咨询（扫码添加）</h4>
+                {/* 正方形裁切容器 + 居中放大图源，铺满白底、避免整块截图在框内上下留白 */}
+                <div className="mx-auto grid place-items-center">
+                  <div className="relative aspect-square w-full max-w-[200px] overflow-hidden rounded-xl border border-border bg-white shadow-[0_1px_12px_-4px_rgb(60_57_53/0.12)] ring-1 ring-black/[0.04]">
+                    <img
+                      src="/images/wechat-consult-qr.png"
+                      alt="微信咨询二维码"
+                      decoding="async"
+                      loading="lazy"
+                      className="absolute left-1/2 top-[40%] h-[178%] w-[178%] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-[50%_50%] pointer-events-none select-none"
+                    />
+                  </div>
                 </div>
-                <p className="text-xs text-foreground/60 mt-2">
+                <p className="text-xs text-foreground/60 mt-4 text-center sm:text-left leading-relaxed">
                   扫码后可直接添加顾问微信进行一对一咨询。
                 </p>
               </div>
