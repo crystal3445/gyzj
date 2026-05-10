@@ -155,21 +155,25 @@ export function ContactForm() {
                 </div>
               </div>
 
-              <div className="mt-6 rounded-xl border border-border bg-background/40 p-4">
-                <h4 className="font-medium text-foreground mb-4">微信咨询（扫码添加）</h4>
-                {/* 正方形裁切容器 + 居中放大图源，铺满白底、避免整块截图在框内上下留白 */}
-                <div className="mx-auto grid place-items-center">
-                  <div className="relative aspect-square w-full max-w-[200px] overflow-hidden rounded-xl border border-border bg-white shadow-[0_1px_12px_-4px_rgb(60_57_53/0.12)] ring-1 ring-black/[0.04]">
-                    <img
-                      src="/images/wechat-consult-qr.png"
-                      alt="微信咨询二维码"
-                      decoding="async"
-                      loading="lazy"
-                      className="absolute left-1/2 top-[40%] h-[178%] w-[178%] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-[50%_50%] pointer-events-none select-none"
-                    />
-                  </div>
+              <div
+                className="mt-6 rounded-[20px] border-2 border-[#C9A982]/85 bg-[#FCF8F3] px-6 py-7 md:px-9 md:py-9"
+              >
+                <h4 className="font-semibold text-[#3d2f24] mb-6 text-[15px] md:text-base tracking-wide">
+                  微信咨询（扫码添加）
+                </h4>
+                <div className="flex justify-center px-2">
+                  {/* 使用纯白底 PNG，contain 铺满可用宽度并保持比例 */}
+                  <img
+                    src="/images/wechat-consult-qr.png"
+                    alt="微信咨询二维码"
+                    width={560}
+                    height={560}
+                    decoding="async"
+                    loading="lazy"
+                    className="w-full max-w-[272px] h-auto rounded-[14px] border border-white/90 bg-white object-contain shadow-[0_10px_32px_-8px_rgba(61,47,36,0.22)]"
+                  />
                 </div>
-                <p className="text-xs text-foreground/60 mt-4 text-center sm:text-left leading-relaxed">
+                <p className="text-xs md:text-[13px] text-[#8B7D6B] mt-6 leading-relaxed">
                   扫码后可直接添加顾问微信进行一对一咨询。
                 </p>
               </div>
