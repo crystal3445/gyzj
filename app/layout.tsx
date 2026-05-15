@@ -1,10 +1,16 @@
-import type { Metadata } from 'next'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
+import type { Metadata } from "next"
+import Script from "next/script"
+import { Analytics } from "@vercel/analytics/next"
+import "./globals.css"
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "https://gyzjhcxa.com"
+
+/** 百度统计 hm.js 站点 id；可在环境变量中覆盖 */
+const baiduHmSiteId =
+  process.env.NEXT_PUBLIC_BAIDU_HM_ID?.trim() ||
+  "4a53d9dd549ea30ed10b67d01a88abe9"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -23,6 +29,19 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className="font-sans antialiased">
+        {baiduHmSiteId ? (
+          <Script id="baidu-hm" strategy="afterInteractive">
+            {`
+              var _hmt = _hmt || [];
+              (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?${baiduHmSiteId}";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+              })();
+            `}
+          </Script>
+        ) : null}
         {children}
         <Analytics />
       </body>
