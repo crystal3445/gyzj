@@ -3,7 +3,7 @@
 import { useState } from "react"
 
 /**
- * 点击「华草视界」后弹出二维码，适配“只有二维码、没有稳定链接”的公众号场景。
+ * 点击「寻艾本草」后弹出二维码，适配“只有二维码、没有稳定链接”的公众号场景。
  * 可选配置：
  * NEXT_PUBLIC_WECHAT_QR_IMAGE=/images/wechat-qr.png
  * NEXT_PUBLIC_WECHAT_OFFICIAL_URL=https://mp.weixin.qq.com/...（若有可用链接则显示备用按钮）
@@ -21,7 +21,7 @@ export function OfficialAccountLink({ className }: { className?: string }) {
         className={className}
         aria-label="打开公众号二维码"
       >
-        华草视界
+        寻艾本草
       </button>
 
       {open ? (
@@ -47,11 +47,11 @@ export function OfficialAccountLink({ className }: { className?: string }) {
 
             <img
               src={qrImage}
-              alt="华草视界公众号二维码"
+              alt="寻艾本草公众号二维码"
               className="mx-auto w-56 h-56 object-contain rounded-md border border-border bg-background"
             />
             <p className="text-center text-sm text-foreground/70 mt-3">
-              请使用微信扫一扫，关注「华草视界」
+              请使用微信扫一扫，关注「寻艾本草」
             </p>
 
             {url ? (

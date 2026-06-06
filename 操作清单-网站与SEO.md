@@ -44,11 +44,11 @@ pkill -f "next start" || true
 ```
 
 ```bash
-nohup pnpm exec next start -p 3012 > /tmp/next-3012.log 2>&1 &
+nohup pnpm exec next start -p 3012 > /var/www/gyzj/next-3012.log 2>&1 &
 ```
 
 ```bash
-tail -n 25 /tmp/next-3012.log
+tail -n 25 /var/www/gyzj/next-3012.log
 ```
 
 看到日志里有 **Ready** 再继续。
