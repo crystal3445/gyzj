@@ -1,7 +1,7 @@
 "use client"
 
 import { useInView } from "@/hooks/use-in-view"
-import { Store, Building, TrendingUp, type LucideIcon } from "lucide-react"
+import { Building, TrendingUp, type LucideIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 type CooperationMode = {
@@ -11,24 +11,9 @@ type CooperationMode = {
   description: string
   features: string[]
   highlight: boolean
-  backgroundImage?: string
 }
 
 const cooperationModes: CooperationMode[] = [
-  {
-    icon: Store,
-    level: "罐法合作店",
-    price: "8900元",
-    description: "适合已有门店老板嫁接，轻资产快速上手",
-    features: [
-      "门店净利润100%归加盟商",
-      "适合已有门店老板嫁接",
-      "大品牌供给流量",
-      "全程运营指导",
-    ],
-    highlight: false,
-    backgroundImage: "/images/guanf-hezuo-bg.png",
-  },
   {
     icon: Building,
     level: "标准店",
@@ -86,33 +71,21 @@ export function Cooperation() {
         </div>
 
         {/* Cooperation Modes */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
           {cooperationModes.map((mode, index) => {
             const Icon = mode.icon
             return (
             <div
               key={index}
-              className={`relative border rounded-xl overflow-hidden transition-all duration-500 hover:shadow-xl ${
-                mode.backgroundImage ? "bg-transparent" : "bg-card"
-              } ${
+              className={`relative bg-card border rounded-xl overflow-hidden transition-all duration-500 hover:shadow-xl ${
                 mode.highlight
-                  ? "border-primary shadow-lg scale-105 md:scale-110"
+                  ? "border-primary shadow-lg scale-105 md:scale-105"
                   : "border-border hover:-translate-y-1"
               } ${
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {mode.backgroundImage ? (
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-cover bg-center"
-                  style={{
-                    backgroundImage: `linear-gradient(rgba(250, 244, 232, 0.88), rgba(250, 244, 232, 0.92)), url(${mode.backgroundImage})`,
-                  }}
-                />
-              ) : null}
-
               {/* Highlight badge */}
               {mode.highlight && (
                 <div className="absolute top-0 right-0 z-20 bg-primary text-primary-foreground text-xs px-3 py-1 rounded-bl-lg">
