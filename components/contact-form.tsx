@@ -85,7 +85,7 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="py-12 md:py-16">
       <div ref={ref} className="container mx-auto px-4">
         {/* Section Title */}
         <div

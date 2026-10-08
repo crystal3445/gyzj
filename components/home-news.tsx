@@ -11,7 +11,7 @@ export function HomeNews({ posts }: Props) {
   if (posts.length === 0) return null
 
   return (
-    <section id="latest-news" className="py-16 md:py-24 bg-muted/30 border-y border-border/60">
+    <section id="latest-news" className="py-12 md:py-16 bg-muted/30 border-y border-border/60">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>

@@ -8,7 +8,7 @@ export function BrandIntro() {
   const { ref, isInView } = useInView()
 
   return (
-    <section id="brand" className="py-20 md:py-28 bg-card">
+    <section id="brand" className="py-12 md:py-16 bg-card">
       <div
         ref={ref}
         className={`container mx-auto px-4 transition-all duration-1000 ${

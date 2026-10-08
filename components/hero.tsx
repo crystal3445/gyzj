@@ -56,7 +56,7 @@ export function Hero() {
 
       {/* 手机端：文字在上，人物在下 */}
       <div className="md:hidden">
-        <div className="px-4 pt-10 pb-6 text-center">
+        <div className="px-4 pt-24 pb-6 text-center">
           <h1
             className="font-serif text-3xl"
             style={{ color: "#2D6B4F", fontWeight: 900, lineHeight: 1.3 }}

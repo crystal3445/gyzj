@@ -52,7 +52,7 @@ export function StoreOutput() {
   const { ref, isInView } = useInView()
 
   return (
-    <section id="output" className="py-20 md:py-28">
+    <section id="output" className="py-12 md:py-16">
       <div ref={ref} className="container mx-auto px-4">
         {/* Section Title */}
         <div

@@ -13,6 +13,7 @@ const navItems = [
   { label: "合作支持", href: "#support" },
   { label: "加盟模式", href: "#cooperation" },
   { label: "加盟流程", href: "#process" },
+  { label: "数字大屏", href: "/bigscreen" },
 ]
 
 const navLinkClass =

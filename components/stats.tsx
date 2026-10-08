@@ -4,7 +4,6 @@ import { useInView } from "@/hooks/use-in-view"
 import { useEffect, useState } from "react"
 
 const stats = [
-  { number: 4, suffix: "代", label: "传承历史" },
   { number: 8, suffix: "万亩", label: "联合种植基地" },
   { number: 100, suffix: "+", label: "品类产品" },
   { number: 7, suffix: "大", label: "上游供应链" },
@@ -82,7 +81,7 @@ export function Stats() {
 
   return (
     <section
-      className="py-20 md:py-28 relative overflow-hidden"
+      className="py-12 md:py-16 relative overflow-hidden"
       style={{ backgroundColor: "#5B8A70" }}
     >
       {/* Background Image */}
@@ -132,7 +131,7 @@ export function Stats() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}

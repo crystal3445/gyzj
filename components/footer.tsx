@@ -44,6 +44,7 @@ export function Footer() {
                 { label: "合作支持", href: "#support" },
                 { label: "加盟模式", href: "#cooperation" },
                 { label: "加盟流程", href: "#process" },
+                { label: "数字大屏", href: "/bigscreen" },
                 { label: "加盟咨询", href: "#contact" },
               ].map((link) => (
                 <a

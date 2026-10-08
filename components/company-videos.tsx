@@ -11,7 +11,7 @@ export function CompanyVideos({ videos }: Props) {
   return (
     <section
       id="company-videos"
-      className="py-16 md:py-24 bg-background border-y border-border/60"
+      className="py-12 md:py-16 bg-background border-y border-border/60"
     >
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="mb-10 md:mb-12">

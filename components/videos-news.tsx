@@ -20,7 +20,7 @@ export function VideosNews({ videos, posts }: Props) {
   return (
     <section
       id="videos-news"
-      className="py-16 md:py-24 bg-background border-y border-border/60"
+      className="py-12 md:py-16 bg-background border-y border-border/60"
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-14">

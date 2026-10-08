@@ -22,7 +22,7 @@ const gallery = [
 
 export function ProductIntro() {
   return (
-    <section id="products" className="py-20 md:py-28 bg-card">
+    <section id="products" className="py-12 md:py-16 bg-card">
       <div className="container mx-auto px-4">
         {/* 开篇：真与实 */}
         <div className="max-w-3xl mx-auto text-center mb-12">

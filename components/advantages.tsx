@@ -53,7 +53,7 @@ export function Advantages() {
   const { ref, isInView } = useInView()
 
   return (
-    <section id="advantages" className="py-20 md:py-28 bg-background">
+    <section id="advantages" className="py-12 md:py-16 bg-background">
       <div ref={ref} className="container mx-auto px-4">
         {/* Section Title */}
         <div

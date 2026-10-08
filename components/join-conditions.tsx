@@ -33,7 +33,7 @@ export function JoinConditions() {
   const { ref, isInView } = useInView()
 
   return (
-    <section id="join-conditions" className="pt-0 pb-20 md:pb-28">
+    <section id="join-conditions" className="pt-0 pb-12 md:pb-16">
       <div ref={ref} className="container mx-auto px-4">
         {/* Join Conditions */}
         <div

@@ -71,7 +71,7 @@ export function Process() {
   const { ref, isInView } = useInView()
 
   return (
-    <section id="process" className="py-20 md:py-28 bg-card">
+    <section id="process" className="py-12 md:py-16 bg-card">
       <div ref={ref} className="container mx-auto px-4">
         {/* Section Title */}
         <div
