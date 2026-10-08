@@ -1,0 +1,18 @@
+[Unit]
+Description=GYZJ Next.js (国医仲景官网)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/var/www/gyzj
+Environment=NODE_ENV=production
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ExecStart=/usr/bin/pnpm exec next start -p 3012
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/gyzj-next.log
+StandardError=append:/var/log/gyzj-next.log
+
+[Install]
+WantedBy=multi-user.target
