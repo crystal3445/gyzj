@@ -6,8 +6,8 @@ import {
   Leaf, 
   Tv,
   Building2,
-  Rocket,
-  Shield
+  BadgeCheck,
+  Factory
 } from "lucide-react"
 
 const advantages = [
@@ -15,7 +15,25 @@ const advantages = [
     icon: Award,
     title: "非遗艾绒制作技艺",
     description: "2021年被评为南阳市非物质文化遗产代表性项目，第四代传承人肖吉全为市级代表性传承人",
-    image: "/images/drying-mugwort.jpg",
+    image: "/images/heritage-plaque.jpg",
+  },
+  {
+    icon: BadgeCheck,
+    title: "商业特许经营备案企业",
+    description: "中华人民共和国商务部商业特许经营备案企业，具有连锁加盟的资质",
+    image: "/images/mofcom-franchise.png",
+  },
+  {
+    icon: Tv,
+    title: "央视《焦点访谈》专访",
+    description: "2021年央视《焦点访谈》专访报道，肖老匠心制艾事迹，让中医药回归本源，造福苍生",
+    image: "/images/cctv-interview.jpg",
+  },
+  {
+    icon: Building2,
+    title: "基地自建仓储车间",
+    description: "4000+吨陈艾叶储存，保证每一颗艾柱都是用三年陈艾制作而成，满足全国门店的需求",
+    image: "/images/warehouse.jpg",
   },
   {
     icon: Leaf,
@@ -24,28 +42,10 @@ const advantages = [
     image: "/images/vast-field.jpg",
   },
   {
-    icon: Tv,
-    title: "央视《焦点访谈》专访",
-    description: "2021年央视《焦点访谈》专访报道，肖老匠心制艾事迹，让中医药回归本源，造福苍生",
-    image: "/images/farmer-examining.jpg",
-  },
-  {
-    icon: Building2,
-    title: "河南省双龙头企业",
-    description: "河南省农业产业化重点龙头企业&河南省省级扶贫龙头企业，首届南阳艾草协会会长单位",
-    image: "/images/warehouse.jpg",
-  },
-  {
-    icon: Rocket,
-    title: "艾草种子上过太空",
-    description: "南阳艾1号种子搭乘神舟十二号航天飞船进入太空，通过诱变育种技术改良艾草基因",
-    image: "/images/field-aerial.jpg",
-  },
-  {
-    icon: Shield,
-    title: "艾产业高质量发展主委单位",
-    description: "中国中医药研究促进会艾产业高质量发展专业委员会主委单位",
-    image: "/images/aging-facility.jpg",
+    icon: Factory,
+    title: "完善的自有供应链体系",
+    description: "艾绒厂、设备厂、膏贴厂等",
+    image: "/images/supply-chain.jpg",
   },
 ]
 
@@ -53,7 +53,7 @@ export function Advantages() {
   const { ref, isInView } = useInView()
 
   return (
-    <section id="advantages" className="py-20 md:py-28 bg-card">
+    <section id="advantages" className="py-20 md:py-28 bg-background">
       <div ref={ref} className="container mx-auto px-4">
         {/* Section Title */}
         <div
@@ -75,31 +75,31 @@ export function Advantages() {
           {advantages.map((item, index) => (
             <div
               key={index}
-              className={`bg-background border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-500 hover:-translate-y-1 ${
+              className={`bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-500 hover:-translate-y-1 ${
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Image */}
-              <div className="h-40 overflow-hidden">
+              <div className="aspect-[16/9] bg-muted/40 overflow-hidden">
                 <img 
                   src={item.image} 
                   alt={item.title} 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
                 />
               </div>
               
-              <div className="p-6">
+              <div className="p-5">
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 -mt-10 relative z-10 border-4 border-background">
-                  <item.icon className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-2 -mt-8 relative z-10 border-4 border-card">
+                  <item.icon className="w-4.5 h-4.5 text-primary" />
                 </div>
 
                 {/* Content */}
-                <h3 className="font-serif text-lg font-bold text-foreground mb-2">
+                <h3 className="font-serif text-base font-bold text-foreground mb-1.5">
                   {item.title}
                 </h3>
-                <p className="text-foreground/70 text-sm leading-relaxed">{item.description}</p>
+                <p className="text-foreground/70 text-xs leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}

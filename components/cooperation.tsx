@@ -68,6 +68,17 @@ export function Cooperation() {
           <p className="text-foreground/70 max-w-2xl mx-auto">
             多层级加盟体系，满足不同投资需求
           </p>
+          <h3 className="font-serif text-4xl md:text-5xl font-bold text-primary mt-4 mb-3">
+            0 加盟费
+          </h3>
+          <div className="text-primary/50 text-xs mb-3">▼</div>
+          <div className="inline-flex flex-wrap justify-center items-center gap-x-8 gap-y-2 border border-primary/40 bg-card rounded-full px-8 py-2.5">
+            {["品牌费", "管理费", "服务费"].map((fee) => (
+              <span key={fee} className="font-serif text-lg md:text-xl font-bold text-primary">
+                0 <span className="ml-1">{fee}</span>
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Cooperation Modes */}

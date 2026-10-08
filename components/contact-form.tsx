@@ -97,99 +97,16 @@ export function ContactForm() {
             加盟咨询
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-4" />
-          <p className="text-foreground/70 max-w-2xl mx-auto">
-            请直接拨打下方热线联系
-          </p>
-          <p className="text-foreground/70 max-w-2xl mx-auto mt-2">
-            留下您的联系方式，合作顾问将在24小时内与您取得联系
+          <p className="text-primary font-semibold max-w-2xl mx-auto">
+            请填写下方基础信息，留下您的联系方式，合作顾问将免费为您提供区域查询与启动成本测算
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-12">
-          {/* Contact Info */}
-          <div
-            className={`transition-all duration-1000 ${
-              isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-            }`}
-          >
-            <div className="bg-card border border-border rounded-xl p-6 md:p-8 h-full flex flex-col">
-              <h3 className="font-serif text-2xl font-bold text-foreground mb-6">
-                联系方式
-              </h3>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground mb-1">加盟热线（微信同号）</h4>
-                    <p className="text-2xl font-serif font-bold text-primary">
-                      187-6818-9822
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground mb-1">服务时间</h4>
-                    <p className="text-foreground/70">周一至周日 9:00-21:00</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.004-.272-.02-.407-.032zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground mb-1">官方公众号</h4>
-                    <p className="text-foreground/70">
-                      <OfficialAccountLink className="text-primary underline-offset-2 hover:underline" />
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="mt-6 rounded-[20px] border-2 border-[#C9A982]/85 bg-[#FCF8F3] px-6 py-7 md:px-9 md:py-9"
-              >
-                <h4 className="font-semibold text-[#3d2f24] mb-6 text-[15px] md:text-base tracking-wide">
-                  微信咨询（扫码添加）
-                </h4>
-                <div className="flex justify-center px-2">
-                  {/* 使用纯白底 PNG，contain 铺满可用宽度并保持比例 */}
-                  <img
-                    src="/images/wechat-contact-qr.png"
-                    alt="微信咨询二维码"
-                    width={560}
-                    height={560}
-                    decoding="async"
-                    loading="lazy"
-                    className="w-full max-w-[272px] h-auto rounded-[14px] border border-white/90 bg-white object-contain shadow-[0_10px_32px_-8px_rgba(61,47,36,0.22)]"
-                  />
-                </div>
-                <p className="text-xs md:text-[13px] text-[#8B7D6B] mt-6 leading-relaxed">
-                  扫码后可直接添加顾问微信进行一对一咨询。
-                </p>
-              </div>
-
-              <div className="mt-auto pt-6 border-t border-border">
-                <p className="text-foreground/60 text-sm">
-                  * 我们承诺对您的信息严格保密
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Contact Form */}
           <div
             className={`transition-all duration-1000 ${
-              isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+              isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
           >
             <div className="bg-card border border-border rounded-xl p-6 md:p-8 h-full flex flex-col">
@@ -419,10 +336,92 @@ export function ContactForm() {
                   >
                     {isSubmitting ? "提交中..." : "立即咨询"}
                   </Button>
+
+                  <p className="text-center text-foreground/60 text-sm">
+                    * 我们承诺对您的信息严格保密
+                  </p>
                 </form>
               )}
             </div>
           </div>
+          {/* Contact Info */}
+          <div
+            className={`transition-all duration-1000 ${
+              isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
+          >
+            <div className="bg-card border border-border rounded-xl p-6 md:p-8 h-full flex flex-col">
+              <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
+                联系方式
+              </h3>
+              <p className="text-foreground/70 text-sm mb-6">
+                也可通过以下方式直接添加顾问进行咨询
+              </p>
+
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-foreground mb-1">加盟热线（微信同号）</h4>
+                    <p className="text-2xl font-serif font-bold text-primary">
+                      187-6818-9822
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-foreground mb-1">服务时间</h4>
+                    <p className="text-foreground/70">周一至周日 9:00-21:00</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.004-.272-.02-.407-.032zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-foreground mb-1">官方公众号</h4>
+                    <p className="text-foreground/70">
+                      <OfficialAccountLink className="text-primary underline-offset-2 hover:underline" />
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="mt-6 rounded-[20px] border-2 border-[#C9A982]/85 bg-[#FCF8F3] px-5 py-5 md:px-6 md:py-6"
+              >
+                <h4 className="font-semibold text-[#3d2f24] mb-4 text-[15px] md:text-base tracking-wide">
+                  微信咨询（扫码添加）
+                </h4>
+                <div className="flex justify-center">
+                  {/* 使用纯白底 PNG，contain 铺满可用宽度并保持比例 */}
+                  <img
+                    src="/images/wechat-contact-qr.png"
+                    alt="微信咨询二维码"
+                    width={560}
+                    height={560}
+                    decoding="async"
+                    loading="lazy"
+                    className="w-full max-w-[168px] h-auto rounded-[12px] border border-white/90 bg-white object-contain shadow-[0_8px_24px_-8px_rgba(61,47,36,0.22)]"
+                  />
+                </div>
+                <p className="text-xs md:text-[13px] text-[#8B7D6B] mt-4 leading-relaxed text-center">
+                  扫码后可直接添加顾问微信进行一对一咨询。
+                </p>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

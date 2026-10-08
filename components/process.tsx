@@ -3,62 +3,67 @@
 import { useInView } from "@/hooks/use-in-view"
 import { 
   MessageCircle, 
+  Search,
+  ClipboardCheck,
   MapPin, 
-  UserCheck, 
   FileSignature, 
   Palette, 
   Hammer,
   GraduationCap,
   Package,
-  Rocket,
-  Store
+  Rocket
 } from "lucide-react"
 
 const steps = [
   {
     icon: MessageCircle,
     title: "咨询",
-    description: "咨询各区域合作顾问",
+    description: "咨询各区域招商代理人员",
   },
   {
-    icon: MapPin,
-    title: "店面选址",
-    description: "在合作顾问协助下自行选址",
+    icon: Search,
+    title: "加盟商考察",
+    description: "加盟商到公司或所在地门店考察",
   },
   {
-    icon: UserCheck,
-    title: "合作方考察",
-    description: "到公司或所在地门店考察",
+    icon: ClipboardCheck,
+    title: "加盟商评估",
+    description: "公司评估加盟商是否符合加盟要求",
   },
   {
     icon: FileSignature,
     title: "评估通过",
-    description: "签订合作合同，完成相关费用缴纳",
-  },
-  {
-    icon: Palette,
-    title: "店面设计",
-    description: "公司评估店面，出平面空间设计图",
-  },
-  {
-    icon: Hammer,
-    title: "装修办证",
-    description: "根据公司标准装修，办理营业执照",
+    description: "签订特许合同，缴纳加盟费用",
   },
   {
     icon: GraduationCap,
     title: "培训学习",
-    description: "参加线上线下培训，提升专业知识",
+    description: "通过公司学习系统参加线上线下培训学习，提升专业知识",
+  },
+  {
+    icon: MapPin,
+    title: "店面选址",
+    description: "在招商代理人员协助下自行选址，并提交公司客服",
+  },
+  {
+    icon: Palette,
+    title: "店面设计",
+    description: "公司评估加盟商店面、店址，出平面空间设计图",
+  },
+  {
+    icon: Hammer,
+    title: "装修办证",
+    description: "加盟商根据公司装修标准进行装修，自行办理相关营业执照",
   },
   {
     icon: Package,
     title: "产品到货",
-    description: "自用分享，按标准流程提前试营业",
+    description: "自用分享，按照公司标准销售服务流程运行，提前试营业",
   },
   {
     icon: Rocket,
     title: "正式开业",
-    description: "按公司运营管理标准执行门店经营",
+    description: "按照公司制定运营管理标准执行门店经营",
   },
 ]
 
@@ -79,7 +84,7 @@ export function Process() {
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-4" />
           <p className="text-foreground/70 max-w-2xl mx-auto">
-            九步轻松开启健康事业新篇章
+            十步轻松开启健康事业新篇章
           </p>
         </div>
 
@@ -110,7 +115,7 @@ export function Process() {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-5 gap-4">
             {steps.slice(5).map((step, index) => (
               <div
                 key={index + 5}
@@ -129,7 +134,7 @@ export function Process() {
                   {step.title}
                 </h3>
                 <p className="text-foreground/70 text-xs text-center">{step.description}</p>
-                {index < 3 && (
+                {index < 4 && (
                   <div className="absolute top-8 left-[60%] w-[80%] h-0.5 bg-border" />
                 )}
               </div>

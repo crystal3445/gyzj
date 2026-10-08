@@ -38,13 +38,12 @@ export function Footer() {
             <h4 className="font-serif text-lg font-bold text-background mb-3">快速导航</h4>
             <div className="grid grid-cols-2 gap-x-8 gap-y-2">
               {[
-                { label: "品牌介绍", href: "#brand" },
-                { label: "加盟模式", href: "#cooperation" },
+                { label: "品牌溯源", href: "#brand" },
+                { label: "企业视频及资讯", href: "#videos-news" },
                 { label: "整店运营", href: "#output" },
-                { label: "企业视频", href: "#company-videos" },
+                { label: "合作支持", href: "#support" },
+                { label: "加盟模式", href: "#cooperation" },
                 { label: "加盟流程", href: "#process" },
-                { label: "品牌优势", href: "#advantages" },
-                { label: "资讯动态", href: "/news" },
                 { label: "加盟咨询", href: "#contact" },
               ].map((link) => (
                 <a

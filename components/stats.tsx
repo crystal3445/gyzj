@@ -6,13 +6,35 @@ import { useEffect, useState } from "react"
 const stats = [
   { number: 4, suffix: "代", label: "传承历史" },
   { number: 8, suffix: "万亩", label: "联合种植基地" },
-  { number: 8000, suffix: "+", label: "连锁门店" },
   { number: 100, suffix: "+", label: "品类产品" },
   { number: 7, suffix: "大", label: "上游供应链" },
   { number: 20, suffix: "+", label: "省级运营中心" },
 ]
 
-function AnimatedNumber({ target, suffix }: { target: number; suffix: string }) {
+const statsExtended: Array<{
+  number: number
+  suffix: string
+  label: string
+  decimals?: number
+  noSeparator?: boolean
+}> = [
+  { number: 10, suffix: "余个", label: "海外国家" },
+  { number: 4000, suffix: "+", label: "专营门店落地" },
+  { number: 1.2, suffix: "w+", label: "灸疗师专业认证", decimals: 1 },
+  { number: 2300, suffix: "w+", label: "终端用户触达", noSeparator: true },
+]
+
+function AnimatedNumber({
+  target,
+  suffix,
+  decimals = 0,
+  noSeparator = false,
+}: {
+  target: number
+  suffix: string
+  decimals?: number
+  noSeparator?: boolean
+}) {
   const [current, setCurrent] = useState(0)
   const { ref, isInView } = useInView({ threshold: 0.5 })
 
@@ -30,16 +52,26 @@ function AnimatedNumber({ target, suffix }: { target: number; suffix: string }) 
         setCurrent(target)
         clearInterval(timer)
       } else {
-        setCurrent(Math.floor(increment * currentStep))
+        const value = decimals > 0
+          ? increment * currentStep
+          : Math.floor(increment * currentStep)
+        setCurrent(value)
       }
     }, duration / steps)
 
     return () => clearInterval(timer)
-  }, [isInView, target])
+  }, [isInView, target, decimals])
+
+  const display = noSeparator
+    ? current.toFixed(decimals)
+    : current.toLocaleString(undefined, {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      })
 
   return (
     <span ref={ref}>
-      {current.toLocaleString()}
+      {display}
       {suffix}
     </span>
   )
@@ -49,15 +81,23 @@ export function Stats() {
   const { ref, isInView } = useInView()
 
   return (
-    <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
+    <section
+      className="py-20 md:py-28 relative overflow-hidden"
+      style={{ backgroundColor: "#5B8A70" }}
+    >
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img 
-          src="/images/field-aerial.jpg" 
-          alt="艾草种植基地" 
-          className="w-full h-full object-cover opacity-20"
+        <img
+          src="/images/field-aerial.jpg"
+          alt="艾草种植基地"
+          className="w-full h-full object-cover opacity-15"
         />
       </div>
+      {/* 顶部米黄渐变，与上方首屏自然衔接 */}
+      <div
+        className="absolute top-0 left-0 right-0 h-28 pointer-events-none"
+        style={{ background: "linear-gradient(to bottom, #F5EDD8, rgba(245,237,216,0))" }}
+      />
       <div
         ref={ref}
         className={`container mx-auto px-4 transition-all duration-1000 relative z-10 ${
@@ -65,18 +105,34 @@ export function Stats() {
         }`}
       >
         {/* Section Title */}
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-            品牌实力
+        <div className="text-center mb-14">
+          <h2
+            className="font-serif text-5xl md:text-6xl mb-6"
+            style={{
+              color: "#FFFFFF",
+              fontWeight: 900,
+              textShadow: "0 2px 8px rgba(0,0,0,0.28)",
+              letterSpacing: "0.04em",
+            }}
+          >
+            国医仲景
           </h2>
-          <div className="w-16 h-1 bg-primary-foreground/50 mx-auto rounded-full mb-4" />
-          <p className="text-primary-foreground/70 max-w-2xl mx-auto">
-            三产融合 · 源头供应链 · 深度推进艾产业高质量发展
+          <p
+            className="max-w-4xl mx-auto leading-relaxed"
+            style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 1px 6px rgba(0,0,0,0.25)" }}
+          >
+            国医仲景是一个艾灸馆连锁品牌，定位【社区康养门店】，运营成本低，客流稳定，复购高，目前全国有4000+门店。
+          </p>
+          <p
+            className="max-w-4xl mx-auto leading-relaxed mt-2"
+            style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 1px 6px rgba(0,0,0,0.25)" }}
+          >
+            品牌致力于服务每一个认可中医文化，热爱养生，想要创业开店的伙伴，最终实现“艾进万家，天下无疾”的大愿。
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -85,10 +141,63 @@ export function Stats() {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-2">
-                <AnimatedNumber target={stat.number} suffix={stat.suffix} />
+              <div
+                className="font-serif text-5xl md:text-6xl lg:text-7xl mb-3 leading-none"
+                style={{
+                  color: "#FFFFFF",
+                  fontWeight: 900,
+                  textShadow: "0 3px 12px rgba(0,0,0,0.35)",
+                }}
+              >
+                <AnimatedNumber target={stat.number} suffix="" />
+                <span className="text-2xl md:text-3xl ml-1" style={{ fontWeight: 800 }}>
+                  {stat.suffix}
+                </span>
               </div>
-              <div className="text-primary-foreground/70 text-sm">{stat.label}</div>
+              <div
+                className="text-sm font-medium"
+                style={{ color: "rgba(255,255,255,0.92)", textShadow: "0 1px 6px rgba(0,0,0,0.3)" }}
+              >
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Extended Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-14">
+          {statsExtended.map((stat, index) => (
+            <div
+              key={index}
+              className={`text-center transition-all duration-500 ${
+                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: `${(index + 6) * 100}ms` }}
+            >
+              <div
+                className="font-serif text-5xl md:text-6xl lg:text-7xl mb-3 leading-none"
+                style={{
+                  color: "#FFFFFF",
+                  fontWeight: 900,
+                  textShadow: "0 3px 12px rgba(0,0,0,0.35)",
+                }}
+              >
+                <AnimatedNumber
+                  target={stat.number}
+                  suffix=""
+                  decimals={stat.decimals ?? 0}
+                  noSeparator={stat.noSeparator ?? false}
+                />
+                <span className="text-2xl md:text-3xl ml-1" style={{ fontWeight: 800 }}>
+                  {stat.suffix}
+                </span>
+              </div>
+              <div
+                className="text-sm font-medium"
+                style={{ color: "rgba(255,255,255,0.92)", textShadow: "0 1px 6px rgba(0,0,0,0.3)" }}
+              >
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>

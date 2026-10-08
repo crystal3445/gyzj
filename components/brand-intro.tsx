@@ -85,14 +85,6 @@ export function BrandIntro() {
             />
           </div>
 
-          <div className="text-center mb-12 px-4 py-6 bg-background rounded-xl">
-            <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-              {"站在健康中国的新起点,国医仲景致力弘扬艾灸文化,坚守道地南阳艾,以"}
-              <span className="text-primary font-semibold">{"3年陈真年份非遗艾绒"}</span>
-              {"为核心,不断丰富艾生活新场景,让好艾真艾造福更多百姓,为千千万万个家庭带去艾与温暖,一生安康!"}
-            </p>
-          </div>
-
           <div className="bg-background rounded-xl p-6 md:p-8 mb-12">
             <h3 className="font-serif text-xl font-bold text-foreground text-center mb-6">{"企业文化"}</h3>
             <div className="grid md:grid-cols-3 gap-6">
@@ -108,25 +100,6 @@ export function BrandIntro() {
                 <div className="text-primary font-bold mb-2">{"价值观"}</div>
                 <p className="text-foreground/70 text-sm">{"南阳艾 遵道地 致良知 本为民"}</p>
               </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="font-serif text-3xl md:text-4xl font-bold text-primary mb-1">4</div>
-              <div className="text-sm text-foreground/60">{"代传承"}</div>
-            </div>
-            <div className="text-center">
-              <div className="font-serif text-3xl md:text-4xl font-bold text-primary mb-1">8万亩</div>
-              <div className="text-sm text-foreground/60">{"联合种植基地"}</div>
-            </div>
-            <div className="text-center">
-              <div className="font-serif text-3xl md:text-4xl font-bold text-primary mb-1">8000+</div>
-              <div className="text-sm text-foreground/60">{"连锁门店"}</div>
-            </div>
-            <div className="text-center">
-              <div className="font-serif text-3xl md:text-4xl font-bold text-primary mb-1">100+</div>
-              <div className="text-sm text-foreground/60">{"品类产品"}</div>
             </div>
           </div>
         </div>

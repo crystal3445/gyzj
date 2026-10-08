@@ -3,11 +3,14 @@ import { Hero } from "@/components/hero"
 import { BrandIntro } from "@/components/brand-intro"
 import { CompanyVideos } from "@/components/company-videos"
 import { HomeNews } from "@/components/home-news"
+import { VideosNews } from "@/components/videos-news"
 import { StoreOutput } from "@/components/store-output"
 import { Advantages } from "@/components/advantages"
+import { ProductIntro } from "@/components/product-intro"
 import { Cooperation } from "@/components/cooperation"
 import { Process } from "@/components/process"
 import { Support } from "@/components/support"
+import { JoinConditions } from "@/components/join-conditions"
 import { Stats } from "@/components/stats"
 import { ContactForm } from "@/components/contact-form"
 import { Footer } from "@/components/footer"
@@ -27,15 +30,16 @@ export default async function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <BrandIntro />
-      <CompanyVideos videos={companyVideos} />
-      <HomeNews posts={homeNews} />
-      <StoreOutput />
-      <Advantages />
-      <Cooperation />
-      <Process />
-      <Support />
       <Stats />
+      <BrandIntro />
+      <Advantages />
+      <ProductIntro />
+      <VideosNews videos={companyVideos} posts={homeNews} />
+      <StoreOutput />
+      <Support />
+      <Cooperation />
+      <JoinConditions />
+      <Process />
       <ContactForm />
       <Footer />
       <FloatingCTA />
