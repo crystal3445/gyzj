@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 const DASHBOARD_URL =
-  "https://huacaoxiangai.huacaoshuo.cn/dateshow/#/dataShow/index"
+  "https://huacaoxiangai.huacaogongyinglian.com/dateshow/#/dataShow/index"
 
 export const metadata: Metadata = {
   title: "数字大屏｜国医仲景华草香艾数据中心",
